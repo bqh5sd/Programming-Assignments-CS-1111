@@ -1,7 +1,5 @@
-#uvahoops.py
-
 player = input("What player would you like to calculate statistics for: ")
-opponent = input("Against what team was the opponent in that you would like to compute statistics for: ")
+opponent = input("Against what opponent would you like to claculate statistcs for: ")
 three_attempted = int(input("How many 3's has this player attempted?: "))
 three_made = int(input("How many 3's has this player made?: "))
 two_attempted = int(input("How many 2's has this player attempted?:" ))
