@@ -10,10 +10,10 @@ def subtract(born):
 
 
 if year_born0 == 1772:
-    new_number += 1772
+    new_number = new_number + 1772
     subtract(new_number)
 else:
-    new_number += 1771
+    new_number = new_number + 1771
     subtract(new_number)
 
 
