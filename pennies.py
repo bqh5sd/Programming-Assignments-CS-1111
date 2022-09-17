@@ -6,8 +6,6 @@
 
 # Write the num_pennies function here, including docstring:
 
-import math
-
 def num_pennies (cost,paid):
     """"
     This function will find the reminder of pennies needed to give change to customer
@@ -24,7 +22,7 @@ def num_pennies (cost,paid):
     check_for_dollar_bill = change_difference_in_pennies%100
     check_for_quarters = check_for_dollar_bill%25
     check_for_nickles = check_for_quarters%5
-    total_pennies = math.ceil(check_for_nickles)
+    total_pennies = round(check_for_nickles)
     return str(total_pennies)
 
 
