@@ -6,6 +6,7 @@
 
 # Write the num_pennies function here, including docstring:
 
+
 def num_pennies (cost,paid):
     """"
     This function will find the reminder of pennies needed to give change to customer
@@ -17,6 +18,8 @@ def num_pennies (cost,paid):
 
     Returns:
         the difference in the cost vs paid and then taking the module for each currency type
+        the returned float should then be rounded and then converted to a string to fit the print statement
+        
     """
     change_difference_in_pennies = abs((float(cost) - float(paid)))*100
     check_for_dollar_bill = change_difference_in_pennies%100
