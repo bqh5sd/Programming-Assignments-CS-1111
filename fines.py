@@ -4,16 +4,17 @@ def fine(speed_limit, my_speed, zone = "None"):
     amount_due = 0
     speed_limit_difference = my_speed - speed_limit
     if speed_limit_difference > 0 and speed_limit_difference < 20:
-        if zone != "residential":
-            amount_due = speed_limit_difference*7
-        elif "residential" in zone:
+        if "residential" in zone:
+            print(zone)
             amount_due = (speed_limit_difference*8)+200
+        elif zone == "school" or zone == "work":
+            amount_due = speed_limit_difference*7
         else:
             amount_due = speed_limit_difference*6
     else:
         if speed_limit_difference >= 20:
             amount_due += 350
-        elif speed_limit_difference <= -10:
+        elif speed_limit_difference < -10:
             amount_due += 30
     return amount_due
 
