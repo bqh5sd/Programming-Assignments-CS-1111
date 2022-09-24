@@ -13,7 +13,7 @@ def fine(speed_limit, my_speed, zone = "None"):
     else:
         if speed_limit_difference >= 20:
             amount_due =+ 350
-        elif speed_limit_difference <= -10:
+        elif speed_limit_difference < -10:
             amount_due =+ 30
     return amount_due
 
