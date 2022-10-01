@@ -15,6 +15,8 @@ def clear(clr_input = 0):
     recent_value = 0
     expression = str(current_value)
     operation_performed = ""
+    if clr_input == 0:
+        recent_value = clr_input
     return int(current_value)
 
 def step(operation_input, value_input):
