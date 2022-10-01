@@ -27,7 +27,10 @@ def step(operation_input, value_input):
     recent_value = int(value_input)
     operation_performed = operation_input
 
-    expression = "(" + expression + ")" + operation_performed + str(recent_value)
+    if operation_performed != "":
+        expression = "(" + expression + ")" + operation_performed + str(recent_value)
+    else:
+        clear()
 
     if operation_input == "+":
         current_value += recent_value
