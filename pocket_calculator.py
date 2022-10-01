@@ -43,7 +43,7 @@ def step(operation_input, value_input):
 
 def repeat():
     step(operation_performed, recent_value)
-    return int(current_value)
+    return current_value
 
 def get_expr():
     return expression
