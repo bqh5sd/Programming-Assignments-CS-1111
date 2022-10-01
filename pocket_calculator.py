@@ -24,19 +24,19 @@ def step(operation_input, value_input):
     global operation_performed
     global expression
 
-    recent_value = value_input
+    recent_value = int(value_input)
     operation_performed = operation_input
 
     expression = "(" + expression + ")" + operation_performed + str(recent_value)
 
     if operation_input == "+":
-        current_value += value_input
+        current_value += recent_value
     elif operation_input == "-":
-        current_value -= value_input
+        current_value -= recent_value
     elif operation_input == "*":
-        current_value *= value_input
+        current_value *= recent_value
     else:
-        current_value = current_value/value_input
+        current_value = current_value/recent_value
 
     return int(current_value)
 
