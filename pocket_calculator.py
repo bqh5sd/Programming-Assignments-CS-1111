@@ -36,7 +36,8 @@ def step(operation_input, value_input):
     elif operation_input == "*":
         current_value *= recent_value
     else:
-        current_value = current_value/recent_value
+        if recent_value != 0:
+            current_value = current_value/recent_value
 
     return int(current_value)
 
