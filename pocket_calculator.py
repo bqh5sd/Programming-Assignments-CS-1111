@@ -15,8 +15,6 @@ def clear(clr_input = 0):
     recent_value = 0
     expression = str(current_value)
     operation_performed = ""
-    if clr_input == 0:
-        recent_value = clr_input
     return int(current_value)
 
 def step(operation_input, value_input):
@@ -47,6 +45,9 @@ def step(operation_input, value_input):
     return int(current_value)
 
 def repeat():
+    global recent_value
+    if recent_value == 0:
+        recent_value = current_value
     step(operation_performed, recent_value)
     return int(current_value)
 
