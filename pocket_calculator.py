@@ -4,7 +4,7 @@ recent_value = 0
 expression = str(current_value)
 
 def get_value():
-    return current_value
+    return int(current_value)
 
 def clear(clr_input = 0):
     global current_value
@@ -15,7 +15,7 @@ def clear(clr_input = 0):
     recent_value = 0
     expression = str(current_value)
     operation_performed = ""
-    return current_value
+    return int(current_value)
 
 def step(operation_input, value_input):
     global current_value
