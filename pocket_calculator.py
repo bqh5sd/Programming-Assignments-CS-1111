@@ -28,9 +28,6 @@ def step(operation_input, value_input):
     operation_performed = operation_input
 
 
-    if recent_value == 0:
-        recent_value = current_value
-
     if operation_performed != "":
         expression = "(" + expression + ")" + operation_performed + str(recent_value)
     else:
@@ -50,6 +47,9 @@ def step(operation_input, value_input):
     return int(current_value)
 
 def repeat():
+    global recent_value
+    if recent_value == 0:
+        recent_value = current_value
     step(operation_performed, recent_value)
     return int(current_value)
 
