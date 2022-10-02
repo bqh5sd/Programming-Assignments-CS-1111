@@ -4,7 +4,6 @@
 
 
 def quad(x, y):
-    quadrant = ""
     if x > 0 and y > 0:
         quadrant = 1
     elif x < 0 and y > 0:
