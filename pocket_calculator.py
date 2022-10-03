@@ -27,12 +27,11 @@ def step(operation_input, value_input):
     recent_value = int(value_input)
     operation_performed = operation_input
 
+    print("CV" + str(current_value))
+
     if operation_input == "+":
         current_value += recent_value
     elif operation_input == "-":
-        if operation_input == "-" and value_input < 0:
-            operation_performed = "+"
-            recent_value = abs(recent_value)
         current_value -= recent_value
     elif operation_input == "*":
         current_value *= recent_value
