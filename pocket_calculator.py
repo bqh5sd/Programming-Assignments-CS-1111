@@ -14,7 +14,7 @@ def clear(clr_input = 0):
     current_value = clr_input
     recent_value = 0
     expression = str(current_value)
-    operation_performed = ""
+    operation_performed = operation_performed
     return int(current_value)
 
 def step(operation_input, value_input):
@@ -27,10 +27,8 @@ def step(operation_input, value_input):
     recent_value = int(value_input)
     operation_performed = operation_input
 
-    if operation_performed != "":
-        expression = "(" + expression + ")" + operation_performed + str(recent_value)
-    else:
-        expression = str(recent_value)
+
+    expression = "(" + expression + ")" + operation_performed + str(recent_value)
 
     if operation_input == "+":
         current_value += recent_value
@@ -49,7 +47,7 @@ def repeat():
     if operation_performed == "":
         recent_value = current_value
     step(operation_performed, recent_value)
-    return int(current_value)
+    return ("Current:" + str(current_value))
 
 def get_expr():
     return expression
