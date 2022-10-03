@@ -30,15 +30,15 @@ def step(operation_input, value_input):
     print("CV" + str(current_value))
 
     if operation_input == "+":
-        current_value += recent_value
+        current_value += int(recent_value)
     elif operation_input == "-":
-        current_value -= recent_value
+        current_value -= int(recent_value)
     elif operation_input == "*":
-        current_value *= recent_value
+        current_value *= int(recent_value)
     elif operation_input == "":
-        current_value = current_value
+        current_value = int(current_value)
     else:
-        current_value = current_value/recent_value
+        current_value = int(current_value/recent_value)
 
     if operation_performed != "":
         expression = "(" + expression + ")" + operation_performed + str(recent_value)
