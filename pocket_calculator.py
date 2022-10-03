@@ -46,6 +46,8 @@ def step(operation_input, value_input):
 
 def repeat():
     global recent_value
+    if operation_performed == "":
+        recent_value = current_value
     step(operation_performed, recent_value)
     return int(current_value)
 
