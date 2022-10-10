@@ -55,5 +55,5 @@ def soft_score(hand):
     return score
 
 
-print(card_to_value("Q"))
+
 
