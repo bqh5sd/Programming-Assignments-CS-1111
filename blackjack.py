@@ -15,12 +15,7 @@ def card_to_value(card):
         return score
     elif "J" or "K" or "Q" or "T":
     	score = 10 
-    	return 10 
-
-    for cards in card_faces:
-        if cards == card:
-            score = 10
-            return score
+    	return score
 
 def hard_score(hand):
     i = 0
