@@ -1,6 +1,3 @@
-
-
-
 def card_to_value(card):
     #Card is a string
     #returns the numeric blackjack score of the card
@@ -13,10 +10,12 @@ def card_to_value(card):
         score = 1
         return 1
 
-    for cards in card_values:
-        if cards == card:
-            score = int(card)
-            return score
+    if card == "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9":
+        score = int(card)
+        return score
+    elif "J" or "K" or "Q" or "T":
+    	score = 10 
+    	return 10 
 
     for cards in card_faces:
         if cards == card:
@@ -27,21 +26,16 @@ def hard_score(hand):
     i = 0
     score = 0
 
-    card_faces = ["T", "J", "Q", "K"]
-    card_values = ["2", "3", "4", "5", "6", "7", "8", "9"]
-
     while i < (len(hand)):
         for letters in hand[i]:
             i += 1
             #print(letters)
             if letters == "A":
                 score += 1
-            for cards in card_faces:
-                if cards == letters:
-                    score += 10
-            for cards in card_values:
-                if cards == letters:
-                    score += int(letters)
+            elif letters == "J" or "K" or "Q" or "T":
+            	score += 10
+            elif letters == "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9":
+            	score += int(letters)
     return score
 
 
@@ -49,10 +43,6 @@ def soft_score(hand):
     i = 0
     score = 0
     a_count = 0
-
-    card_faces = ["T", "J", "Q", "K"]
-    card_values = ["2", "3", "4", "5", "6", "7", "8", "9"]
-
     while i < (len(hand)):
         for letters in hand[i]:
             i += 1
@@ -64,15 +54,9 @@ def soft_score(hand):
                 else:
                     Ace_score = 11
                 score += Ace_score
-            for cards in card_faces:
-                if cards == letters:
-                    score += 10
-            for cards in card_values:
-                if cards == letters:
-                    score += int(letters)
+            elif letters == "T" or "J" or "K" or "Q":
+                score += 10
+            elif letters == "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9":
+            	score += int(letters)
 
     return score
-
-
-
-
