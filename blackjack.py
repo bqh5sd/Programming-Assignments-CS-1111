@@ -3,17 +3,16 @@ def card_to_value(card):
     #returns the numeric blackjack score of the card
     #For "A", this should return 1, not 11
     #For the rest face cards, it should return 10
-    card_faces = ["T", "J", "Q", "K"]
-    card_values = ["2", "3", "4", "5", "6", "7", "8", "9"]
 
     if card == "A":
         score = 1
         return 1
 
     if card == "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9":
+        #print(card)
         score = int(card)
         return score
-    elif "J" or "K" or "Q" or "T":
+    elif card == "J" or "K" or "Q" or "T":
     	score = 10 
     	return score
 
@@ -55,3 +54,5 @@ def soft_score(hand):
             	score += int(letters)
 
     return score
+
+
