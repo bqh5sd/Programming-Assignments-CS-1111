@@ -1,42 +1,47 @@
-
+#Omid Akbari
+#bqh5sd
 
 
 def card_to_value(card):
-    #Card is a string
-    #returns the numeric blackjack score of the card
-    #For "A", this should return 1, not 11
-    #For the rest face cards, it should return 10
+    '''
+    The purpose of this function is to see how much a card is valued/worth in the game
+    :param card: This is the input parameter for the type of card being tested
+    :return: This function will return the value worth of the card in ordinance with the game
+    '''
+    #Pre-set card faces and card numbers
     card_faces = ("TJQK")
-    card_values = ("23456789")
-
-    i = 0
-
+    card_numbers = ("23456789")
+    #If the card is an Ace
     if card == "A":
-        score = 1
-        return score
-
-    for cards in card_values:
-        i += 1
+        points = 1
+        return points
+    #Checks the type of card numbers with the card input to return the value(points) of that card
+    for cards in card_numbers:
         if cards == card:
-            score = int(card)
-            return score
-
+            points = int(card)
+            return points
+    #Checks the type of card face with the card input to return the value(points) of that card
     for cards in card_faces:
         if cards == card:
-            score = 10
-            return score
+            points = 10
+            return points
 
 def hard_score(hand):
-    i = 0
+    '''
+    The purpose of this function is to find the hard score value of a set of cards which is input into the function
+    :param hand: The set of cards which will be tested to calculate the total amount of points for those all the cards
+    :return: This function will return the total score of the provided cards
+    '''
+    string_index = 0
     score = 0
-
+    # Pre-set card faces and card numbers
     card_faces = ("TJQK")
     card_values = ("23456789")
-
-    while i < (len(hand)):
-        for letters in hand[i]:
-            i += 1
-            #print(letters)
+    #Runs through to check the input cards against the type of cards avaible in the game to calculate the total amount of points 
+    #For the Hard score, all aces will be worth 1
+    while string_index < (len(hand)):
+        for letters in hand[string_index]:
+            string_index += 1
             if letters == "A":
                 score += 1
             for cards in card_faces:
@@ -49,13 +54,19 @@ def hard_score(hand):
 
 
 def soft_score(hand):
+    '''
+    The purpose of this function is to find the soft score value of a set of cards which is input into the function
+    :param hand: The set of cards which will be tested to calculate the total amount of points for those all the cards
+    :return: This function will return the total score of the provided cards
+    '''
     i = 0
     score = 0
     a_count = 0
-
+    # Pre-set card faces and card numbers
     card_faces = ("TJQK")
     card_values = ("23456789")
-
+    # Runs through to check the input cards against the type of cards avaible in the game to calculate the total amount of points 
+    # For the Soft score, all aces will be worth 11, but more than one ace will make the value of the ace 1 after
     while i < (len(hand)):
         for letters in hand[i]:
             i += 1
