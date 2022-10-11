@@ -13,7 +13,7 @@ def card_to_value(card):
 
     if card == "A":
         score = 1
-        return 1
+        return score
 
     for cards in card_values[i]:
         i += 1
