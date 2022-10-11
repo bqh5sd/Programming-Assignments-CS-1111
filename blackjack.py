@@ -37,7 +37,7 @@ def hard_score(hand):
     # Pre-set card faces and card numbers
     card_faces = ("TJQK")
     card_values = ("23456789")
-    #Runs through to check the input cards against the type of cards avaible in the game to calculate the total amount of points 
+    #Runs through to check the input cards against the type of cards avaible in the game to calculate the total amount of points
     #For the Hard score, all aces will be worth 1
     while string_index < (len(hand)):
         for letters in hand[string_index]:
@@ -59,25 +59,25 @@ def soft_score(hand):
     :param hand: The set of cards which will be tested to calculate the total amount of points for those all the cards
     :return: This function will return the total score of the provided cards
     '''
-    i = 0
+    string_index = 0
     score = 0
-    a_count = 0
+    ace_count = 0
     # Pre-set card faces and card numbers
     card_faces = ("TJQK")
     card_values = ("23456789")
-    # Runs through to check the input cards against the type of cards avaible in the game to calculate the total amount of points 
+    # Runs through to check the input cards against the type of cards avaible in the game to calculate the total amount of points
     # For the Soft score, all aces will be worth 11, but more than one ace will make the value of the ace 1 after
-    while i < (len(hand)):
-        for letters in hand[i]:
-            i += 1
+    while string_index < (len(hand)):
+        for letters in hand[string_index]:
+            string_index += 1
             # print(letters)
             if letters == "A":
-                a_count += 1
-                if a_count > 1:
-                    Ace_score = 1
+                ace_count += 1
+                if ace_count > 1:
+                    Ace_value = 1
                 else:
-                    Ace_score = 11
-                score += Ace_score
+                    Ace_value = 11
+                score += Ace_value
             for cards in card_faces:
                 if cards == letters:
                     score += 10
