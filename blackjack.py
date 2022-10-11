@@ -15,7 +15,7 @@ def card_to_value(card):
         score = 1
         return score
 
-    for cards in card_values[i]:
+    for cards in card_values:
         i += 1
         if cards == card:
             score = int(card)
@@ -75,6 +75,7 @@ def soft_score(hand):
                     score += int(letters)
 
     return score
+
 
 
 
