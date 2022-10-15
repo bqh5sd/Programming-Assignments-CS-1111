@@ -1,4 +1,4 @@
-def comparing_list(list):
+def compare(list):
     strings_similar = 0
     for string in list:
         first_character = string[0]
