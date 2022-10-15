@@ -3,6 +3,9 @@ def compare(list):
     for string in list:
         first_character = string[0]
         length = len(string)
-        if first_character == string[length-1]:
+        if first_character.upper() == string[length-1].upper():
             strings_similar += 1
     return strings_similar
+
+
+
