@@ -66,16 +66,6 @@ def clear():
 	dict = {}
 	
 
-college = {'Virginia': 13, "Ohio" : 18, "Alabama" : 9}
-	
-	
-add_state('Virginia', {'Turing' : 15, 'Lovelace' : 20, 'Dijkstra' : 10})
-
-add_state('Ohio', {'Turing' : 1, 'Dijkstra' : 15})
-
-add_state("Alabama", {'Turing' : 10, 'Lovelace' : 5, 'Dijkstra' : 15})
-
-print(winner(college))
 
 
 
