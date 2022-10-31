@@ -20,6 +20,8 @@ def add_state(name, votes):
             winner_state = name
             winner_name = candidate
     dict[winner_state] = winner_name
+    winner_state = ''
+    winner_name = ''
 
 
 
