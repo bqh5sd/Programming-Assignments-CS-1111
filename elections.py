@@ -2,7 +2,7 @@
 #bqh5sd
 
 
-
+dict = {}
 
 def add_state(name, votes):
     '''
@@ -13,7 +13,6 @@ def add_state(name, votes):
     :return: This function does not return anything
     '''
     global dict
-    dict = {}
     most_votes = -1
     winner_state = ''
     winner_name = ''
