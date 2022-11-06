@@ -1,4 +1,4 @@
-#Omid Akbar
+#Omid Akbari
 #bqh5sd
 from urllib.request import urlopen
 
@@ -90,16 +90,9 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     for days in class_1_days:
         #print(days)
         if days in class_2_days:
-            if class1_start_time == class2_start_time or class1_end_time == class2_start_time:
+            if class1_start_time <= class2_start_time <= class1_end_time or class2_start_time <= class1_start_time <= class2_end_time:
                 return False
             else:
                 return True
         else:
             return True
-
-
-
-
-
-
-
