@@ -63,7 +63,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                     class1_end_time -= 1200
                     class1_start_time -= 1200
             else:
-                return False
+                return needs_open_space
         #Second class
         if new_line == second_class:
             if current_line[15] < current_line[16]:
@@ -82,7 +82,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                     class2_start_time -= 1200
 
             else:
-                return False
+                return needs_open_space
 
 
     #Compare day and time
