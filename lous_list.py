@@ -22,7 +22,10 @@ def instructor_lectures(department, instructor):
         if current_line[5] == "Lecture":
             if current_line[0] == department:
                 if current_line[4] == instructor:
-                    list_of_courses += [current_line[3]]
+                    if current_line[3] not in list_of_courses:
+                        list_of_courses += [current_line[3]]
+                    else:
+                        list_of_courses += []
     return list_of_courses
 
 
@@ -54,13 +57,11 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                     if current_line[days] == "true":
                         class_1_days += [days]
                 #cheeck for the start and end times
-
                 class1_start_time = int(current_line[12])
                 class1_end_time = int(current_line[13])
                 if class1_end_time or class1_start_time > 1200:
                     class1_end_time -= 1200
                     class1_start_time -= 1200
-                    #print(class1_start_time, class1_end_time)
             else:
                 return needs_open_space
         #Second class
@@ -79,11 +80,9 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                 if class2_end_time or class2_start_time > 1200:
                     class2_end_time -= 1200
                     class2_start_time -= 1200
-                    #print("class 2 times:" , class2_start_time, class2_end_time)
 
             else:
                 return needs_open_space
-    #print(class_1_days, class_2_days)
 
 
     #Compare day and time
@@ -103,3 +102,8 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
 
 
 
+print(instructor_lectures("CS", "Nada Basit"))
+#print(compatible_classes("CS 1110-001", "CS 2150-001"))
+
+#print(instructor_lectures('CS', 'Kathryn Neeley'))
+#print(instructor_lectures('CS', 'Raymond Pettit'))
