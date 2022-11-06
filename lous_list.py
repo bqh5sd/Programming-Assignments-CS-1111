@@ -1,3 +1,12 @@
+from urllib.request import urlopen
+
+url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
+web_data = urlopen(url)
+data = web_data.read().decode('utf-8').strip().split('\n')
+
+
+
+
 def instructor_lectures(department, instructor):
     '''
     Purpose of this function is to return a list of all the course names for the lectures taught by a given instructor within the
