@@ -102,8 +102,4 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
 
 
 
-print(instructor_lectures("CS", "Nada Basit"))
-#print(compatible_classes("CS 1110-001", "CS 2150-001"))
 
-#print(instructor_lectures('CS', 'Kathryn Neeley'))
-#print(instructor_lectures('CS', 'Raymond Pettit'))
