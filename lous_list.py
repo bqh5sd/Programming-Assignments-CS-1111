@@ -5,8 +5,6 @@ web_data = urlopen(url)
 data = web_data.read().decode('utf-8').strip().split('\n')
 
 
-
-
 def instructor_lectures(department, instructor):
     '''
     Purpose of this function is to return a list of all the course names for the lectures taught by a given instructor within the
@@ -93,5 +91,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         if days in class_2_days:
             if class1_start_time == class2_start_time or class1_end_time == class2_start_time:
                 return False
+            else: 
+                return True
         else:
             return "compatiable"
