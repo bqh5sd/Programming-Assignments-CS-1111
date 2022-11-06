@@ -1,3 +1,5 @@
+#Omid Akbar
+#bqh5sd
 from urllib.request import urlopen
 
 url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
@@ -91,7 +93,13 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         if days in class_2_days:
             if class1_start_time == class2_start_time or class1_end_time == class2_start_time:
                 return False
-            else: 
+            else:
                 return True
         else:
-            return "compatiable"
+            return True
+
+
+
+
+
+
