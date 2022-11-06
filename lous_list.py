@@ -24,8 +24,6 @@ def instructor_lectures(department, instructor):
                 if current_line[4] == instructor:
                     if current_line[3] not in list_of_courses:
                         list_of_courses += [current_line[3]]
-                    else:
-                        list_of_courses += []
     return list_of_courses
 
 
@@ -91,9 +89,11 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         #print(days)
         if days in class_2_days:
             if class1_start_time <= class2_start_time <= class1_end_time or class2_start_time <= class1_start_time <= class2_end_time:
-                return needs_open_space
+                return False
             else:
                 return True
         else:
             return True
+
+
 
