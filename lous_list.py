@@ -1,3 +1,6 @@
+from urllib.request import urlopen
+
+
 def instructor_lectures(department, instructor):
     '''
     Purpose of this function is to return a list of all the course names for the lectures taught by a given instructor within the
