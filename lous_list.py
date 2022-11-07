@@ -2,7 +2,7 @@
 #bqh5sd
 from urllib.request import urlopen
 
-url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/PSYC'
+url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
 web_data = urlopen(url)
 data = web_data.read().decode('utf-8').strip().split('\n')
 
@@ -95,12 +95,14 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         else:
             return True
 
-count = 0
+
 for line in range(len(data)):
     current_line = data[line].split("|")
     print(instructor_lectures(current_line[0], current_line[4]))
-    count += 1
-    print(count)
 
 
+
+
+#print(instructor_lectures("CS", "Nada Basit"))
+#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
