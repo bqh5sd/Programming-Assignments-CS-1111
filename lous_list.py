@@ -65,8 +65,9 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                     #cheeck for the start and end times
                     class1_start_time = int(current_line[12])
                     class1_end_time = int(current_line[13])
-                    if class1_end_time or class1_start_time > 1200:
+                    if class1_end_time > 1259:
                         class1_end_time -= 1200
+                    if class1_start_time > 1259:
                         class1_start_time -= 1200
                 else:
                     return needs_open_space
@@ -77,8 +78,9 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                 # cheeck for the start and end times
                 class1_start_time = int(current_line[12])
                 class1_end_time = int(current_line[13])
-                if class1_end_time or class1_start_time > 1200:
+                if class1_end_time > 1259:
                     class1_end_time -= 1200
+                if class1_start_time > 1259:
                     class1_start_time -= 1200
 
         #Second class
@@ -93,8 +95,9 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                     # cheeck for the start and end times
                     class2_start_time = int(current_line[12])
                     class2_end_time = int(current_line[13])
-                    if class2_end_time or class2_start_time > 1200:
+                    if class2_end_time > 1259:
                         class2_end_time -= 1200
+                    if class2_start_time > 1259:
                         class2_start_time -= 1200
                 else:
                     return needs_open_space
@@ -107,8 +110,9 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                 # cheeck for the start and end times
                 class2_start_time = int(current_line[12])
                 class2_end_time = int(current_line[13])
-                if class2_end_time or class2_start_time > 1200:
+                if class2_end_time > 1259:
                     class2_end_time -= 1200
+                if class2_start_time > 1259:
                     class2_start_time -= 1200
 
     #Compare day and time
@@ -134,3 +138,6 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
 #print(instructor_lectures("CS", "Nada Basit"))
 print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
+#if class1_end_time or class1_start_time > 1200:
+    #class1_end_time -= 1200
+    #class1_start_time -= 1200
