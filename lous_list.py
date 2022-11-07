@@ -1,12 +1,3 @@
-#Omid Akbar
-#bqh5sd
-from urllib.request import urlopen
-
-url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
-web_data = urlopen(url)
-data = web_data.read().decode('utf-8').strip().split('\n')
-
-
 def instructor_lectures(department, instructor):
     '''
     Purpose of this function is to return a list of all the course names for the lectures taught by a given instructor within the
@@ -94,15 +85,3 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                 return True
         else:
             return True
-
-
-#for line in range(len(data)):
-    #current_line = data[line].split("|")
-    #instructor_lectures(current_line[0], current_line[4])
-
-print(instructor_lectures("STS", "James Groves"))
-
-
-#print(instructor_lectures("CS", "Nada Basit"))
-#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
-
