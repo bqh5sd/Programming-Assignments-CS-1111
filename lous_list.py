@@ -136,7 +136,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
 
 
 #print(instructor_lectures("CS", "Nada Basit"))
-print(compatible_classes("CS 4730-001", "CS 4730-001", True))
+#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
 #if class1_end_time or class1_start_time > 1200:
     #class1_end_time -= 1200
