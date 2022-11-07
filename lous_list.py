@@ -6,6 +6,10 @@ def instructor_lectures(department, instructor):
     :param instructor:
     :return:
     '''
+
+    web_data = urlopen(url)
+    data = web_data.read().decode('utf-8').strip().split('\n')
+    
     list_of_courses = []
     for line in range(len(data)):
         current_line = data[line].split("|")
@@ -28,6 +32,10 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     :param needs_open_space:
     :return:
     '''
+
+    web_data = urlopen(url)
+    data = web_data.read().decode('utf-8').strip().split('\n')
+    
     class_1_days = []
     class_2_days = []
     class1_start_time = 0
