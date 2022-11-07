@@ -103,6 +103,4 @@ for line in range(len(data)):
     print(count)
 
 
-#print(instructor_lectures("CS", "Nada Basit"))
-#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
