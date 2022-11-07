@@ -19,7 +19,7 @@ def instructor_lectures(department, instructor):
     for line in range(len(data)):
         current_line = data[line].split("|")
         #print(current_line)
-        if current_line[5] == "Lecture" or current_line[5] == "Discussion":
+        if current_line[5] == "Lecture":
             if current_line[0] == department:
                 if current_line[4] == instructor:
                     if current_line[3] not in list_of_courses:
@@ -94,4 +94,15 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                 return True
         else:
             return True
+
+count = 0
+for line in range(len(data)):
+    current_line = data[line].split("|")
+    print(instructor_lectures(current_line[0], current_line[4]))
+    count += 1
+    print(count)
+
+
+#print(instructor_lectures("CS", "Nada Basit"))
+#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
