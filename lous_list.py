@@ -2,7 +2,7 @@
 #bqh5sd
 from urllib.request import urlopen
 
-url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
+url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/STS'
 web_data = urlopen(url)
 data = web_data.read().decode('utf-8').strip().split('\n')
 
@@ -21,7 +21,7 @@ def instructor_lectures(department, instructor):
         #print(current_line)
         if current_line[5] == "Lecture":
             if current_line[0] == department:
-                if current_line[4] in instructor:
+                if instructor in current_line[4]:
                     if current_line[3] not in list_of_courses:
                         list_of_courses += [current_line[3]]
     return list_of_courses
@@ -96,4 +96,13 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
             return True
 
 
+#for line in range(len(data)):
+    #current_line = data[line].split("|")
+    #instructor_lectures(current_line[0], current_line[4])
+
+print(instructor_lectures("STS", "James Groves"))
+
+
+#print(instructor_lectures("CS", "Nada Basit"))
+#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
