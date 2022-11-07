@@ -18,7 +18,7 @@ def instructor_lectures(department, instructor):
     web_data = urlopen(url)
     data = web_data.read().decode('utf-8').strip().split('\n')
 
-   list_of_courses = []
+    list_of_courses = []
     for line in range(len(data)):
         current_line = data[line].split("|")
         if "Lecture" in current_line[5]:
