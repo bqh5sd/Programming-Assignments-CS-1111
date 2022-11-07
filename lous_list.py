@@ -2,7 +2,7 @@
 #bqh5sd
 from urllib.request import urlopen
 
-url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/STS'
+url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
 web_data = urlopen(url)
 data = web_data.read().decode('utf-8').strip().split('\n')
 
