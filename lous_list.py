@@ -23,7 +23,8 @@ def instructor_lectures(department, instructor):
             if current_line[0] == department:
                 if current_line[4] == instructor:
                     if current_line[3] not in list_of_courses:
-                        list_of_courses += [current_line[3]]
+                        if "+1" or "+4" not in current_line[3]:
+                            list_of_courses += [current_line[3]]
     return list_of_courses
 
 
@@ -96,13 +97,4 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
             return True
 
 
-for line in range(len(data)):
-    current_line = data[line].split("|")
-    print(instructor_lectures(current_line[0], current_line[4]))
-
-
-
-
-#print(instructor_lectures("CS", "Nada Basit"))
-#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
