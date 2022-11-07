@@ -26,6 +26,10 @@ def instructor_lectures(department, instructor):
                 if instructor in current_line[4]:
                     if current_line[3] not in list_of_courses:
                         list_of_courses += [current_line[3]]
+                elif "/" in current_line[4]:
+                    if current_line[3] not in list_of_courses:
+                        list_of_courses += [current_line[3]]
+
     return list_of_courses
 
 
