@@ -1,5 +1,6 @@
 from urllib.request import urlopen
 
+url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
 
 def instructor_lectures(department, instructor):
     '''
