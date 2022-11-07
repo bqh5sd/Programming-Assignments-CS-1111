@@ -21,10 +21,9 @@ def instructor_lectures(department, instructor):
         #print(current_line)
         if current_line[5] == "Lecture":
             if current_line[0] == department:
-                if current_line[4] == instructor:
+                if current_line[4] in instructor:
                     if current_line[3] not in list_of_courses:
-                        if "+1" or "+4" not in current_line[3]:
-                            list_of_courses += [current_line[3]]
+                        list_of_courses += [current_line[3]]
     return list_of_courses
 
 
