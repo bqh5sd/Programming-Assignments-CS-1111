@@ -18,12 +18,11 @@ def instructor_lectures(department, instructor):
     web_data = urlopen(url)
     data = web_data.read().decode('utf-8').strip().split('\n')
 
-    list_of_courses = []
+   list_of_courses = []
     for line in range(len(data)):
         current_line = data[line].split("|")
-        #print(current_line)
-        if current_line[5] == "Lecture":
-            if current_line[0] == department:
+        if "Lecture" in current_line[5]:
+            if current_line[0] in department:
                 if instructor in current_line[4]:
                     if current_line[3] not in list_of_courses:
                         list_of_courses += [current_line[3]]
