@@ -2,7 +2,7 @@
 #bqh5sd
 from urllib.request import urlopen
 
-url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
+url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/PSYC'
 web_data = urlopen(url)
 data = web_data.read().decode('utf-8').strip().split('\n')
 
@@ -19,7 +19,7 @@ def instructor_lectures(department, instructor):
     for line in range(len(data)):
         current_line = data[line].split("|")
         #print(current_line)
-        if current_line[5] == "Lecture":
+        if current_line[5] == "Lecture" or current_line[5] == "Discussion":
             if current_line[0] == department:
                 if current_line[4] == instructor:
                     if current_line[3] not in list_of_courses:
@@ -94,6 +94,4 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                 return True
         else:
             return True
-
-
 
