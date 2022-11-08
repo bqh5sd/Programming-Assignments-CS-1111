@@ -2,8 +2,14 @@
 #bqh5sd
 from urllib.request import urlopen
 
-url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
+#url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
 
+def departments(class_name):
+    dept = class_name[0:2]
+    url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/' + dept
+    web_data = urlopen(url)
+    data = web_data.read().decode('utf-8').strip().split('\n')
+    return data
 
 
 def instructor_lectures(department, instructor):
@@ -15,12 +21,11 @@ def instructor_lectures(department, instructor):
     :return:
     '''
 
-    web_data = urlopen(url)
-    data = web_data.read().decode('utf-8').strip().split('\n')
+    final_data = departments(department)
 
     list_of_courses = []
-    for line in range(len(data)):
-        current_line = data[line].split("|")
+    for line in range(len(final_data)):
+        current_line = final_data[line].split("|")
         if "Lecture" in current_line[5]:
             if current_line[0] in department:
                 if instructor in current_line[4]:
@@ -44,8 +49,10 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     :return:
     '''
 
-    web_data = urlopen(url)
-    data = web_data.read().decode('utf-8').strip().split('\n')
+    #web_data = urlopen(url)
+    #data = web_data.read().decode('utf-8').strip().split('\n')
+
+    data_final = departments(first_class)
 
     class_1_days = []
     class_2_days = []
@@ -54,8 +61,8 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     class2_start_time = 0
     class2_end_time = 0
 
-    for line in range(len(data)):
-        current_line = data[line].split("|")
+    for line in range(len(data_final)):
+        current_line = data_final[line].split("|")
         new_line = current_line[0] + " " + current_line[1] + "-" + current_line[2]
         #first class
         if new_line == first_class:
@@ -139,6 +146,23 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
 
 
 #print(instructor_lectures("CS", "Nada Basit"))
+#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
+
+#if class1_end_time or class1_start_time > 1200:
+    #class1_end_time -= 1200
+    #class1_start_time -= 1200
+
+
+
+#for line in range(len(data)):
+    #current_line = data[line].split("|")
+    #instructor_lectures(current_line[0], current_line[4])
+
+#print(instructor_lectures("STS", "James Groves"))
+
+
+#print(instructor_lectures("CS", "Nada Basit"))
+
 #print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
 #if class1_end_time or class1_start_time > 1200:
