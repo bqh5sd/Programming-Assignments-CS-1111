@@ -46,8 +46,12 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     '''
 
     dept = first_class.split()[0]
+    dept2 = second_class.split()[0]
 
-    data_final = departments(dept)
+    #dept2 = second_class()[]
+
+    #function(class1)
+    #function(class2)
 
     class_1_days = []
     class_2_days = []
@@ -56,7 +60,8 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     class2_start_time = 0
     class2_end_time = 0
 
-    for line in range(len(data_final)):
+    for line in range(len(departments(dept))):
+        data_final = departments(dept)
         current_line = data_final[line].split("|")
         new_line = current_line[0] + " " + current_line[1] + "-" + current_line[2]
         #first class
@@ -88,11 +93,19 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                 if class1_start_time > 1259:
                     class1_start_time -= 1200
 
+
         #Second class
+
+    for line in range(len(departments(dept2))):
+
+        data_final = departments(dept2)
+        current_line = data_final[line].split("|")
+        new_line = current_line[0] + " " + current_line[1] + "-" + current_line[2]
+
         if new_line == second_class:
             if needs_open_space == True:
-                print(current_line[15])
-                print(current_line[16])
+                #print(current_line[15])
+                #print(current_line[16])
                 if int(current_line[15]) > int(current_line[16]):
                     print("TEST")
                     # Cheeck days which are class happens on
@@ -123,6 +136,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
 
     #Compare day and time
 
+    print(class_1_days, class_2_days)
     for days in class_1_days:
         if days in class_2_days:
             if class1_start_time <= class2_start_time <= class1_end_time or class2_start_time <= class1_start_time <= class2_end_time:
@@ -132,6 +146,6 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         else:
             return True
 
-#print(compatible_classes("CS 1110-001", "MATH 1160-001", True))
+print(compatible_classes("CS 1110-001", "MATH 1220-010"))
 
 #print(compatible_classes("CS 1110-001", "CS 2110-001", True))
