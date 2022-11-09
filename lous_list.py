@@ -63,7 +63,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         if new_line == first_class:
             print("Here: " + str(needs_open_space))
             if needs_open_space == True:
-                if current_line[15] > current_line[16]:
+                if current_line[15] < current_line[16]:
                     #Cheeck days which are class happens on
                     for days in range(7,12):
                         if current_line[days] == "true":
@@ -92,7 +92,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         #Second class
         if new_line == second_class:
             if needs_open_space == True:
-                if current_line[15] > current_line[16]:
+                if current_line[15] < current_line[16]:
                     # Cheeck days which are class happens on
                     for days2 in range(7, 12):
                         if current_line[days2] == "true":
