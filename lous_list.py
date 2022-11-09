@@ -106,7 +106,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
             if needs_open_space == True:
                 #print(current_line[15])
                 #print(current_line[16])
-                if int(current_line[15]) > int(current_line[16]):
+                if int(current_line[15]) < int(current_line[16]):
                     print("TEST")
                     # Cheeck days which are class happens on
                     for days2 in range(7, 12):
@@ -120,6 +120,8 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                     if class2_start_time > 1259:
                         class2_start_time -= 1200
                 else:
+                    #print("TEST")
+                    #print(current_line[15], current_line[16])
                     return False
             else:
                 # Cheeck days which are class happens on
@@ -146,6 +148,6 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         else:
             return True
 
-print(compatible_classes("CS 1110-001", "MATH 1220-010"))
+#print(compatible_classes("CS 1110-001", "MATH 1220-010"))
 
-#print(compatible_classes("CS 1110-001", "CS 2110-001", True))
+print(compatible_classes("CS 1110-001", "CS 2110-001", True))
