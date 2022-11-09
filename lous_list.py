@@ -61,9 +61,8 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         new_line = current_line[0] + " " + current_line[1] + "-" + current_line[2]
         #first class
         if new_line == first_class:
-            print("Here: " + str(needs_open_space))
             if needs_open_space == True:
-                if current_line[15] < current_line[16]:
+                if int(current_line[15]) < int(current_line[16]):
                     #Cheeck days which are class happens on
                     for days in range(7,12):
                         if current_line[days] == "true":
@@ -92,7 +91,10 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         #Second class
         if new_line == second_class:
             if needs_open_space == True:
-                if current_line[15] < current_line[16]:
+                print(current_line[15])
+                print(current_line[16])
+                if int(current_line[15]) > int(current_line[16]):
+                    print("TEST")
                     # Cheeck days which are class happens on
                     for days2 in range(7, 12):
                         if current_line[days2] == "true":
@@ -131,3 +133,5 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
             return True
 
 #print(compatible_classes("CS 1110-001", "MATH 1160-001", True))
+
+#print(compatible_classes("CS 1110-001", "CS 2110-001", True))
