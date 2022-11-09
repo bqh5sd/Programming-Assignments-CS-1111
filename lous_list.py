@@ -2,11 +2,8 @@
 #bqh5sd
 from urllib.request import urlopen
 
-#url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
-
 def departments(class_name):
     url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/' + class_name
-    #print(url)
     web_data = urlopen(url)
     data = web_data.read().decode('utf-8').strip().split('\n')
     return data
@@ -22,7 +19,6 @@ def instructor_lectures(department, instructor):
     '''
     print(department)
     final_data = departments(department)
-
     list_of_courses = []
     for line in range(len(final_data)):
         current_line = final_data[line].split("|")
@@ -49,13 +45,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     :return:
     '''
 
-    #web_data = urlopen(url)
-    #data = web_data.read().decode('utf-8').strip().split('\n')
-
-
-
     dept = first_class.split()[0]
-    #print(dept)
 
     data_final = departments(dept)
 
@@ -71,8 +61,9 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         new_line = current_line[0] + " " + current_line[1] + "-" + current_line[2]
         #first class
         if new_line == first_class:
+            print("Here: " + str(needs_open_space))
             if needs_open_space == True:
-                if current_line[15] < current_line[16]:
+                if current_line[15] > current_line[16]:
                     #Cheeck days which are class happens on
                     for days in range(7,12):
                         if current_line[days] == "true":
@@ -85,7 +76,7 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                     if class1_start_time > 1259:
                         class1_start_time -= 1200
                 else:
-                    return needs_open_space
+                    return False
             else:
                 for days in range(7, 12):
                     if current_line[days] == "true":
@@ -101,12 +92,11 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         #Second class
         if new_line == second_class:
             if needs_open_space == True:
-                if current_line[15] < current_line[16]:
+                if current_line[15] > current_line[16]:
                     # Cheeck days which are class happens on
                     for days2 in range(7, 12):
                         if current_line[days2] == "true":
                             class_2_days += [days2]
-                    #print(class_2_days)
                     # cheeck for the start and end times
                     class2_start_time = int(current_line[12])
                     class2_end_time = int(current_line[13])
@@ -115,13 +105,12 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
                     if class2_start_time > 1259:
                         class2_start_time -= 1200
                 else:
-                    return needs_open_space
+                    return False
             else:
                 # Cheeck days which are class happens on
                 for days2 in range(7, 12):
                     if current_line[days2] == "true":
                         class_2_days += [days2]
-                # print(class_2_days)
                 # cheeck for the start and end times
                 class2_start_time = int(current_line[12])
                 class2_end_time = int(current_line[13])
@@ -133,7 +122,6 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     #Compare day and time
 
     for days in class_1_days:
-        #print(days)
         if days in class_2_days:
             if class1_start_time <= class2_start_time <= class1_end_time or class2_start_time <= class1_start_time <= class2_end_time:
                 return False
@@ -142,34 +130,4 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
         else:
             return True
 
-
-#for line in range(len(data)):
-    #current_line = data[line].split("|")
-    #instructor_lectures(current_line[0], current_line[4])
-
-#print(instructor_lectures("STS", "James Groves"))
-
-
-#print(instructor_lectures("CS", "Nada Basit"))
-#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
-
-#if class1_end_time or class1_start_time > 1200:
-    #class1_end_time -= 1200
-    #class1_start_time -= 1200
-
-
-
-#for line in range(len(data)):
-    #current_line = data[line].split("|")
-    #instructor_lectures(current_line[0], current_line[4])
-
-#print(instructor_lectures("STS", "James Groves"))
-
-
-print(instructor_lectures("STS", "James Groves"))
-
-print(compatible_classes("CS 4730-001", "CS 4730-001", True))
-
-#if class1_end_time or class1_start_time > 1200:
-    #class1_end_time -= 1200
-    #class1_start_time -= 1200
+#print(compatible_classes("CS 1110-001", "MATH 1160-001", True))
