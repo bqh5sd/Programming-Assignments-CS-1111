@@ -5,8 +5,8 @@ from urllib.request import urlopen
 #url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/CS'
 
 def departments(class_name):
-    dept = class_name[0:2]
-    url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/' + dept
+    url = 'http://arcanum.cs.virginia.edu/cs1110/files/louslist/' + class_name
+    #print(url)
     web_data = urlopen(url)
     data = web_data.read().decode('utf-8').strip().split('\n')
     return data
@@ -20,7 +20,7 @@ def instructor_lectures(department, instructor):
     :param instructor:
     :return:
     '''
-
+    print(department)
     final_data = departments(department)
 
     list_of_courses = []
@@ -52,7 +52,12 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
     #web_data = urlopen(url)
     #data = web_data.read().decode('utf-8').strip().split('\n')
 
-    data_final = departments(first_class)
+
+
+    dept = first_class.split()[0]
+    #print(dept)
+
+    data_final = departments(dept)
 
     class_1_days = []
     class_2_days = []
@@ -161,9 +166,9 @@ def compatible_classes(first_class, second_class, needs_open_space=False):
 #print(instructor_lectures("STS", "James Groves"))
 
 
-#print(instructor_lectures("CS", "Nada Basit"))
+print(instructor_lectures("STS", "James Groves"))
 
-#print(compatible_classes("CS 4730-001", "CS 4730-001", True))
+print(compatible_classes("CS 4730-001", "CS 4730-001", True))
 
 #if class1_end_time or class1_start_time > 1200:
     #class1_end_time -= 1200
