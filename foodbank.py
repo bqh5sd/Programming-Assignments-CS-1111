@@ -1,4 +1,9 @@
 def max_finder(dictionary):
+    '''
+    The purpose of this function is to find the max value in a dictionary
+    :param dictionary: This parameter takes in a dictionary of cities and values
+    :return: Return the max value
+    '''
     max = -1
     locality = ""
 
@@ -10,6 +15,13 @@ def max_finder(dictionary):
 
 
 def maxServed(fptr, year, served):
+    '''
+    prupose of this function is to find more information about different cities food bank services
+    :param fptr: Takes a file data 
+    :param year: Takes in the year that is in intrest 
+    :param served: Takes in what is of intrest to find the max of in a specific locality 
+    :return: Return the city which is of intrest based on the served parameter
+    '''
     data = fptr.read().strip().split('\n')
 
     list_of_served = {}
@@ -41,4 +53,10 @@ def maxServed(fptr, year, served):
                     else:
                         list_of_servedChildren[current_data[2]] = int(current_data[6])
 
-    return max_finder(list_of_servedIndividuals)
+    if served == 0:
+        return max_finder(list_of_served)
+    elif served == 1:
+        return max_finder(list_of_servedIndividuals)
+    else:
+        return max_finder(list_of_servedChildren)
+
