@@ -1,22 +1,10 @@
-#Omid Akbari
-#bqh5sd
-
-def find_max(dict):
-
-    ref = -1
-    max_locality = ""
-
-    for local, value in dict.items():
-        if value > ref:
-            ref = value
-            max_locality = local
-    return max_locality
-
-
 def maxServed(fptr, year, served):
     data = fptr.read().strip().split('\n')
 
     dict = {}
+
+    ref = -1
+    max_locality = ""
 
     for current_data in data[1:]:
         current_data = current_data.split(",")
@@ -26,11 +14,18 @@ def maxServed(fptr, year, served):
 
         if served == 0:
             if int(current_data[0]) == year:
-                dict[current_data[2]] = int(current_data[3])
+                if int(current_data[3]) > ref:
+                    ref = int(current_data[3])
+                    max_locality = current_data[2]
+
         if served == 1:
             if int(current_data[0]) == year:
-                    dict[current_data[2]] = int(current_data[4])
+                if int(current_data[4]) > ref:
+                    ref = int(current_data[4])
+                    max_locality = current_data[2]
         if served == 2:
             if int(current_data[0]) == year:
-                    dict[current_data[2]] = int(current_data[6])
-    return find_max(dict)
+                if int(current_data[6]) > ref:
+                    ref = int(current_data[6])
+                    max_locality = current_data[2]
+    return max_locality
