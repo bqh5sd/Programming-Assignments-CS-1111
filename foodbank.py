@@ -13,7 +13,7 @@ def find_max(dict):
     return max_locality
 
 
-def maxServed(fptr, year, served=1):
+def maxServed(fptr, year, served):
     data = fptr.read().strip().split('\n')
 
     dict = {}
@@ -29,7 +29,6 @@ def maxServed(fptr, year, served=1):
                     dict[current_data[2]] = dict[current_data[2]] + int(current_data[3])
                 else:
                     dict[current_data[2]] = int(current_data[3])
-
         if served == 1:
             if int(current_data[0]) == year:
                 if current_data[2] in dict:
@@ -44,3 +43,4 @@ def maxServed(fptr, year, served=1):
                     dict[current_data[2]] = int(current_data[6])
 
     return find_max(dict)
+
