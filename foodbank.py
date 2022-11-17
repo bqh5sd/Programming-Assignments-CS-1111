@@ -23,24 +23,15 @@ def maxServed(fptr, year, served):
         for i in range(8):
             if current_data[i] == "":
                 current_data[i] = "0"
+
         if served == 0:
             if int(current_data[0]) == year:
-                if current_data[2] in dict:
-                    dict[current_data[2]] = dict[current_data[2]] + int(current_data[3])
-                else:
                     dict[current_data[2]] = int(current_data[3])
         if served == 1:
             if int(current_data[0]) == year:
-                if current_data[2] in dict:
-                    dict[current_data[2]] = dict[current_data[2]] + int(current_data[4])
-                else:
                     dict[current_data[2]] = int(current_data[4])
         if served == 2:
             if int(current_data[0]) == year:
-                if current_data[2] in dict:
-                    dict[current_data[2]] = dict[current_data[2]] + int(current_data[6])
-                else:
                     dict[current_data[2]] = int(current_data[6])
 
     return find_max(dict)
-
